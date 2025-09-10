@@ -1,164 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yummy Bakery</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yummy Bakery</title>
+  <style>
+    /* Reset & Fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #fff5f7, #ffe5ec);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background: #ffb6c1;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .navbar button {
+      margin: 0 1rem;
+      padding: 0.8rem 1.5rem;
+      background: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      color: #ff4081;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .navbar button:hover {
+      background: #ff80ab;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Intro text */
+    .intro {
+      text-align: center;
+      margin: 2rem auto;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      width: 80%;
+      max-width: 700px;
+      margin: 2rem auto;
+      position: relative;
+    }
+    .slide-img {
+      width: 100%;
+      display: none;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Form Card */
+    .card {
+      width: 90%;
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #e91e63;
+    }
+    .card p {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #666;
+    }
+    label {
+      display: block;
+      margin: 0.8rem 0 0.3rem;
+      font-weight: 600;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus, select:focus {
+      border-color: #ff80ab;
+      box-shadow: 0 0 6px rgba(255,64,129,0.4);
+    }
+
+    .row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .row div {
+      flex: 1;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #999;
+    }
+
+    button[type="submit"] {
+      display: block;
+      margin: 1.5rem auto 0;
+      padding: 0.9rem 2rem;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button[type="submit"]:hover {
+      background: #d81b60;
+      transform: translateY(-2px);
+    }
+
+    /* Messages */
+    .k {
+      text-align: center;
+      color: #e91e63;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .l {
+      text-align: center;
+      color: #ff4081;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
-<button class="b1">Home</button>
-<button class="b3"> Menu </button>
-<button class="b4"> Settings </button>
-<button class="b5"> About-us </button>
 
+  <!-- Navigation -->
+  <div class="navbar">
+    <button>Home</button>
+    <button>Menu</button>
+    <button>Settings</button>
+    <button>About Us</button>
+  </div>
 
-<style>
+  <!-- Intro -->
+  <p class="intro">Our recipes are homemade and loved since the 1940s. 🥐🍰🍪</p>
 
-    .b1{
-        height: 4rem;
-        width: 7rem;
-        padding: 0;
-        background-color: pink;
-        color: black;
-        margin-left: 2rem;
-        border-radius:4rem;
-    }
-    .b2{
-        color: violet;
-        font-family: Arial;
-        font-size: 20px;   
-        font-weight: bolder;
-         }
-         .b3{
-            height: 4rem;
-        width: 7rem;
-        padding: 0;
-        background-color: pink;
-        color: black;
-        margin-left: 3rem;
-        border-radius: 4rem;
-         }
-         .b4{
-            height: 4rem;
-        width: 7rem;
-        padding: 0;
-        background-color: pink;
-        color: black;
-        margin-left: 3rem;
-        border-radius: 4rem;
-         }
-         .b5{
-            height: 4rem;
-        width: 7rem;
-        padding: 0;
-        background-color: pink;
-        color: black;
-        margin-left: 3rem;
-        border-radius: 4rem;
-         }
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img src="cake.jpg" class="slide-img mySlides">
+    <img src="donut.jpg" class="slide-img mySlides">
+    <img src="cookies.jpg" class="slide-img mySlides">
+  </div>
 
-</style>
-<p class="b2"> Our recipees are home made they are since 1947's </p>
-<div class="slideshow-container">
-  <img src="cake.jpg" class="slide-img mySlides">
-  <img src="donut.jpg" class="slide-img mySlides">
-  <img src="cookies.jpg" class="slide-img mySlides">
-</div>
-<style>
-    div{
-    
-        margin-left: 30rem;
-    }
-</style>
+  <!-- Order Form -->
+  <form class="card" action="#" method="post">
+    <h1>Bakery Order</h1>
+    <p>Fill this out and we'll get your treats ready!</p>
 
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="Full name" required />
 
+    <label for="phone">Phone Number</label>
+    <input id="phone" name="phone" type="tel" placeholder="e.g. +91 98765 43210" pattern="[+0-9 ()-]{7,}" required />
 
-<script>
-let slideIndex = 0;
-showSlides();
+    <label for="item">Item Needed</label>
+    <select id="item" name="item" required>
+      <option value="" selected disabled>Choose an item</option>
+      <option>Cake</option>
+      <option>Cupcakes</option>
+      <option>Bread</option>
+      <option>Cookies</option>
+      <option>Other</option>
+    </select>
 
-function showSlides() {
-  let slides = document.getElementsByClassName("mySlides");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 2000); // change image every 2s
-}
-</script>
-<body>
-<form class="card" action="#" method="post">
-<h1>Bakery Order</h1>
-<p>Fill this out and we'll get your treats ready!</p>
+    <div class="row">
+      <div>
+        <label for="minPrice">Min Price (₹)</label>
+        <input id="minPrice" name="min_price" type="number" min="0" step="50" placeholder="500" />
+      </div>
+      <div>
+        <label for="maxPrice">Max Price (₹)</label>
+        <input id="maxPrice" name="max_price" type="number" min="0" step="50" placeholder="2000" />
+      </div>
+    </div>
 
+    <div class="note">Leave price blank if you're not sure.</div>
 
-<label for="name">Name</label>
-<input id="name" name="name" type="text" placeholder="Full name" required />
+    <button type="submit">Submit Order</button>
 
+    <p class="k">Your order will arrive in 5 minutes, take a seat 🍩</p>
+    <p class="l">Thank you 💖</p>
+  </form>
 
-<label for="phone">Phone Number</label>
-<input id="phone" name="phone" type="tel" placeholder="e.g. +91 98765 43210" pattern="[+0-9 ()-]{7,}" required />
+  <!-- Slideshow Script -->
+  <script>
+    let slideIndex = 0;
+    showSlides();
 
-
-<label for="item">Item Needed</label>
-<select id="item" name="item" required>
-<option value="" selected disabled>Choose an item</option>
-<option>Cake</option>
-<option>Cupcakes</option>
-<option>Bread</option>
-<option>Cookies</option>
-<option>Other</option>
-</select>
-
-
-<div class="row">
-<div>
-<label for="minPrice">Min Price (₹)</label>
-<input id="minPrice" name="min_price" type="number" min="0" step="50" placeholder="500" />
-</div>
-<div>
-<label for="maxPrice">Max Price (₹)</label>
-<input id="maxPrice" name="max_price" type="number" min="0" step="50" placeholder="2000" />
-</div>
-</div>
-<div class="note">Leave price blank if you're not sure.</div>
-
-
-<button type="submit">Submit Order</button>
-<p class="k"> Your order will arrive in 5 minutes take a seat </p>
-<p class="l">Thank you </p>
-<style>
-    .k{
-        color: rgb(230, 11, 47);
-        font-family: Arial;
-    }
-    .l{
-        color: palevioletred;
-        font-family: Arial;
+    function showSlides() {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 2500); // Change image every 2.5s
     }
 
-</style>
-
-</form>
-
-
-<!-- Optional: basic client-side guard to ensure min ≤ max when both filled -->
-<script>
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-const min = Number(document.getElementById('minPrice').value);
-const max = Number(document.getElementById('maxPrice').value);
-if (min && max && min > max) {
-e.preventDefault();
-alert('Minimum price cannot be greater than maximum price.');
-}
-});
-</script>
-</body>
-</style>
+    // Price validation
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      const min = Number(document.getElementById('minPrice').value);
+      const max = Number(document.getElementById('maxPrice').value);
+      if (min && max && min > max) {
+        e.preventDefault();
+        alert('Minimum price cannot be greater than maximum price.');
+      }
+    });
+  </script>
 
 </body>
-
 </html>
