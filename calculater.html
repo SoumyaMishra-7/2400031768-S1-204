@@ -1,0 +1,50 @@
+<html>
+    <head>
+    </head>
+    <h1> simple calculator</h1>
+    <form>
+        <table>
+            <tr>
+
+                <td>Enter number-1 :</td>
+                <td> <input type="text" id="num1"</td>
+            </tr>
+            <tr>
+                <td> Enter number-2 :</td>
+                <td><input type="text" id="num2"></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="add()">Add</button></td>;
+                <td><button type="button" onclick="multiply()">multiply</button></td>
+            </tr>
+        </table>
+    </form>
+    <div id="result"></div>
+    <script>
+        function get Inputvalues(){
+            const n1=parseFloat(document.getElementbyId('num1').value);
+            const n2=parseFloat(document.getElementbyId('num2').value);
+            return[n1,n2]
+        }
+        function add(_){
+            const n1,n2;
+            [n1,n2] =getInputvalues();
+            if(isNAN(n1)|| is NAA(n2)){
+                document.getElementbyId('result').innerHTML="<b>Invalid Input,Enter the correct"
+                    return;
+            }
+            const sum=n1+n2;
+            document.getElementById('result').innerHTML='the sum is ${sum}';
+        }
+        function multiply(){
+            const[n1,n2]= getInputvalues() ;
+            if(isNAN(n1)|| isNaN(n2)) {
+                document.getElementById('result').innerHtml="<b>Invalid input, Enter thr correct";
+                    return;
+
+            }
+            const product=n1*n2;
+            document.getElementById('result').innerHTML='the product is ${product|}';
+        }
+    </script>
+</html>
